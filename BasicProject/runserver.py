@@ -6,7 +6,7 @@ It contains the definition of routes and views for the application.
 import os
 from flask import Flask
 from HelloFlask import app
-app = Flask(__name__)
+
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app

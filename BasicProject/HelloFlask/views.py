@@ -17,3 +17,10 @@ def home():
         title = "Hello Flask",
         message = "Hello, Flask!",
         content = " on " + formatted_now)
+
+@app.route('/about')
+def about():
+    return render_template(
+        "about.html",
+        title = "About HelloFlask",
+        content = "Example app page for Flask.")

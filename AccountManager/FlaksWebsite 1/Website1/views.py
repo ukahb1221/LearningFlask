@@ -1,7 +1,7 @@
-from flask import Flask
-from Website1 import app
+from flask import Blueprint #Import Blueprint to split views
 
-@app.route('/')
-@app.route('/home')
+views = Blueprint("views", __name__)
+
+@views.route('/') #Binds route to a function
 def home():
-    return "Hello Flask!"
+    return "<h1>Test</h1>"

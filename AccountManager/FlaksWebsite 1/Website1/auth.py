@@ -1,6 +1,7 @@
 from flask import Blueprint #Import Blueprint to split views
 from flask import render_template #Renders html templates created in the sperate files
 from flask import request #Handles HTTP request
+from flask import flash #Create message handling?
 
 auth = Blueprint("auth", __name__)
 
@@ -24,15 +25,15 @@ def sign_up():
         password2 = request.form.get("password2")
 
         if len(email) < 4:
-            pass
+            flash("Email must be greater than 3 characters.", category="error")
         elif len(firstName) < 2:
-            pass
+            flash("First name must be greater than 1 character.", category="error")
         elif password1 != password2:
-            pass
+           flash("Paswords don't match.", category="error")
         elif len(password1) < 7:
-            pass
+            flash("Pasword must be at least 7 characters.", category="error")
         else:
             #Add the user
-            pass
+            flash("Account created.", category="success")
 
     return render_template("sign_up.html")
